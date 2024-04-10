@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <script src="script.js"></script>
+
+    <title>CALCULATOR</title>
+</head>
+<body class="bg-gray-200 p-0 m-0 box-border">
+    <div class="h-screen flex justify-center items-center" >
+        <div class="bg-gray-200 p-4 rounded-[30px] shadow-2xl grid grid-cols-4-[60px] shadow-[inset_5px_5px_12px_rgba(0,0,0,0.2)] ">
+        <input type="text" placeholder="0" class="col-span-4 h-16 w-60 bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[30px] text-[rgb(70,70,70)] text-[50px] text-end
+        m-auto mt-auto p-[20px]" id="output-screen">
+                                                                                  
+        <button onclick="Clear()" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">Cl</button>
+        <button onclick="del()"class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">DEL</button>
+        <button onclick="display('%')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">%</button>
+        <button onclick="display('/')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">/</button>
+        <button onclick="display('7')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">7</button>
+        <button onclick="display('8')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">8</button>
+        <button onclick="display('9')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">9</button>
+        <button onclick="display('*')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">*</button>
+        <button onclick="display('4')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">4</button>
+        <button onclick="display('5')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">5</button>
+        <button onclick="display('6')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">6</button>
+        <button onclick="display('-')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">-</button>
+        <button onclick="display('1')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">1</button>
+        <button onclick="display('2')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">2</button>
+        <button onclick="display('3')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">3</button>
+        <button onclick="display('+')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">+</button>
+        <button onclick="display('.')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">.</button>
+        <button onclick="display('0')" class="h-[48px] w-[48px] bg-gray-200 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.1)] border-none rounded-[50%] m-[8px] text-[16px]">0</button>
+        <button onclick="calculate()"  class="mt-2 col-span-2 shadow-[inset_-5px_-5px_12px_rgba(0,0,0,0.2)] rounded-[40px] bg-gray-200   align-bottom">=</button>
+        
+        
+        </div>
+        </div>
+
+ <script>
+    let outputScree =  document.getElementById("output-screen");
+
+function display(num){
+     outputScree.value += num;
+}
+function calculate(){
+    try{
+        outputScree.value = eval(outputScree.value);
+    }
+    catch(err)
+    {
+        alert("Invalid")
+    }
+}
+function Clear(){
+    outputScree.value ="";
+}
+function del(){
+    outputScree.value = outputScree.value.slice(0,-1);
+}
+ </script>
+</body>
+</html>
